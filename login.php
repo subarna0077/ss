@@ -1,3 +1,36 @@
+<?php 
+
+include "connection.php";
+
+
+//filter inputs :
+if(isset($_POST['send'])){
+    $user_name = FILTER_VAR($_POST['Username'],FILTER_SANITIZE_STRING);
+    $pass = FILTER_VAR($_POST['Pass'],FILTER_SANITIZE_STRING);
+  
+    
+    //check details in DB
+    $sql = "SELECT * FROM User WHERE Username = '$user_name'  AND Password = '$pass' ";
+  
+    $result = $connection->query($sql);
+  
+    if(mysqli_num_rows($result) === 1){
+      session_start();
+      //Loged in user :
+      $_SESSION['user'] = FILTER_VAR($user_name,FILTER_SANITIZE_STRING);
+      $_SESSION['loged'] = TRUE;
+      echo $_SESSION['user'];
+    }
+    else{
+      $message = "*Password not match";
+    }
+  }
+
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,28 +54,25 @@
 
         <div class="welcome">Welcome to RainChat ✌️</div>
 
-        <form action="">
+        <form action="<?php echo htmlspecialchars($_SERVER['SELF']);?>" method="POST">
 
              <label for="username"><b>Username</b></label>
               <br>
-            <input type="text" placeholder="Username" name="Username">
+            <input type="text" placeholder="Username" name="Username" required>
 
              <label for="Pass"><b>Password</b></label>
               <br>
-            <input type="password" placeholder="password" name="Pass" >
-            
-        </form>
-
-        <div class="login-btn">
-            <button>Login</button>
-        </div>
+            <input type="password" placeholder="password" name="Pass" required>
         <a href="">Forget your password?</a>
-
-        <div class="register">
-            <a href="index.html">Create new Account</a>
+        <div class="login-btn">
+            <button  name ="send" >Login</button>
         </div>
-
+        <div class="register">
+            <a href="register.php">Create new Account</a>
+        </div>
+        </form>
 </div>
     
 </body>
 </html>
+
