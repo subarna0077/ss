@@ -16,6 +16,9 @@
 
 include "connection.php";
 
+
+if(isset($_POST['send'])){
+  
 // Taking inputs
 $user_name = FILTER_VAR($_POST['Username'],FILTER_SANITIZE_STRING);
 $email = FILTER_VAR($_POST['Email'],FILTER_SANITIZE_EMAIL);
@@ -51,7 +54,7 @@ if($check == TRUE){
   }
 
 }
-
+}
 ?>
 
 
@@ -180,8 +183,8 @@ if($check == TRUE){
         <br />
         <input type="password" placeholder="password" name="pass" required>
       <div class="register">
-        <br><button class="register-btn" type="submit">Register</button>
-        <a href="login.html">Already have a account?</a>
+        <br><button class="register-btn" name="send">Register</button>
+        <a href="login.php">Already have a account?</a>
       </div>
       </form>
     </div>
