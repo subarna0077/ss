@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 /* TODO :
 **-- Add a connection.php to connect php with mysql database
@@ -12,20 +12,21 @@
 -- Validate re-enter password and allow the data to pass to the database only if it matches with the previous email entered
 */
 
-//Including connection.php 
+//Including connection.php
 
 include "connection.php";
 
+$email_error = "";
 
 if(isset($_POST['send'])){
-  
+
 // Taking inputs
 $user_name = FILTER_VAR($_POST['Username'],FILTER_SANITIZE_STRING);
 $email = FILTER_VAR($_POST['Email'],FILTER_SANITIZE_EMAIL);
 $re_email = FILTER_VAR($_POST['re_email'],FILTER_SANITIZE_EMAIL);
 $pass = FILTER_VAR($_POST['pass'],FILTER_SANITIZE_STRING);
 
-//Check if re-enterd email matches with the previous 
+//Check if re-enterd email matches with the previous
 $check = FALSE;
 
 if(strcmp($email,$re_email) != 0){
@@ -166,7 +167,7 @@ if($check == TRUE){
         <div class="logo-text">Rainchat</div>
       </header>
 
-      <form action="<?php echo htmlspecialchars($_SERVER['SELF']);?>" method="POST">
+      <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method="POST">
         <label for="username"><b>Username</b></label>
         <br />
         <input type="text" placeholder="Username" name="Username" required>
@@ -178,7 +179,7 @@ if($check == TRUE){
         <br />
 
         <input type="text" placeholder="Re" name="re_email" required>
-        <p style = "color:red;"><?php echo $email_error ?></p>
+        <p style = "color:red;"><?php echo $email_error;?></p>
         <label for="Pass"><b>Password</b></label>
         <br />
         <input type="password" placeholder="password" name="pass" required>

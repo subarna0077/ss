@@ -1,7 +1,11 @@
-<?php 
+<?php
 
-//Starting session 
+//Starting session
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
+include "connection.php";
 session_start();
 
 if(!$_SESSION['loged']){
@@ -16,7 +20,7 @@ if(!$_SESSION['loged']){
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    
+
     <script
       src="https://kit.fontawesome.com/e5e6ca6b44.js"
       crossorigin="anonymous"
@@ -45,7 +49,7 @@ if(!$_SESSION['loged']){
           <h2 class="text-2xl text-gray-700 font-[20px]">RainChat</h2>
         </div>
         <div class="nav-items absolute mt-32 bg-blue-600 -translate-x-[14rem]">
-         
+
         </div>
       </div>
     </nav>
@@ -56,16 +60,32 @@ if(!$_SESSION['loged']){
         <div class="links space-x-2 flex items-center lg:space-x-5 ">
           <i class="fa-solid fa-magnifying-glass "></i>
           <a href=""><?php echo $_SESSION['user'];?></a>
-          
-          <div class="itemss hidden md:flex space-x-2  lg:space-x-5"> 
-          
+
+          <div class="itemss hidden md:flex space-x-2  lg:space-x-5">
+
           <div class="item">About</div>
           <div class="item">Contacts</div>
           <div class="item"><form method="POST" action="<?php echo htmlspecialchars($_SERVER['SELF']);?>"><button name ="logout">Logout</form></button></div></div></div>
-        
+
 
       </div>
+      <br><br>
+      <form method = "POST" action ="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" enctype="multipart/form-data">
+        <input type = "textarea" name = "post" placeholder="Say something"  rows="4" cols="500" required>
+        <input type = "file" name = "files">
+        <button type= "submit" name ="send">Send</button>
+      </form>
 
+      <php
+        $sql1 = "SELECT * FROM `Post` ORDER BY id DESC ";
+
+        $result1 = $connection->query($sql1);
+
+        while($row = mysqli_fetch_row($result)){
+
+        
+
+      ?>
       <div class="blog-post md:w-[80%] md:m-auto mx-4 md:flex md:my-6 md:items-center md:p-6">
         <div class="blog-image   ">
           <img class="md:object-cover" src="570fd0e9b5094cdaa8ba958bd6dded88.jpg" alt="" />
@@ -279,8 +299,8 @@ if(!$_SESSION['loged']){
           </div>
         </div>
       </div>
-    
-     
+
+
     </main>
 
     <footer class="bg-[#0a182d] text-white text-center p-2">
@@ -298,7 +318,8 @@ if(!$_SESSION['loged']){
 
 <!--Backend code-->
 
-<?php 
+<?php
+
 
   if(isset($_POST["logout"])){
     session_destroy();
@@ -307,7 +328,26 @@ if(!$_SESSION['loged']){
     </script>";
   }
 
+  //post files send username time likes and comments is set to null at insert
+  if(isset($_POST["send"])){
+    $current_user = $_SESSION['user'];
+    $date = date("h:m:s A");
+    $post = $_POST['post'];
+    $temp_name = $_FILES['files']['tmp_name'];
+    $file_name = $_FILES['files']['name'];
+
+    move_uploaded_file($temp_name,"post_photos/".$file_name);
+
+      $sql = "INSERT INTO `Post`(`Username`, `Post`, `Time`, `Image`, `Likes`, `Comment`) VALUES ('$current_user','$post','$date','$file_name','0','0')";
+
+      $result = $connection->query($sql);
+
+      if(!$result){
+        echo "Bad sql coding";
+      }
+
+  }
+
 
 
 ?>
-
