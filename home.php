@@ -169,14 +169,23 @@ if (isset($_POST["send"])) {
   $file_name = $_FILES['files']['name'];
   $destination = "post_photos/" . $file_name . $date;
 
-  move_uploaded_file($temp_name, $destination);
+  print_r($_FILES['files']);
+  if ($_FILES['files']['type'] == 'image/jpeg' || $_FILES['files']['type'] == 'image/png') {
 
-  $sql = "INSERT INTO `Post`(`Username`, `Post`, `Time`, `Image`, `Likes`, `Comment`) VALUES ('$current_user','$post','$date','$destination','0','0')";
+    move_uploaded_file($temp_name, $destination);
 
-  $result = $connection->query($sql);
+    $sql = "INSERT INTO `Post`(`Username`, `Post`, `Time`, `Image`, `Likes`, `Comment`) VALUES ('$current_user','$post','$date','$destination','0','0')";
 
-  if (!$result) {
-    echo "Bad sql coding";
+    $result = $connection->query($sql);
+
+    if (!$result) {
+      echo "Bad sql coding";
+    }
+  }
+  else{
+    echo "<script>
+      alert('Cannot use this file type use jpeg or png file');
+    </script>";
   }
 }
 
