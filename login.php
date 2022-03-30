@@ -19,7 +19,12 @@ if(isset($_POST['send'])){
       //Loged in user :
       $_SESSION['user'] = FILTER_VAR($user_name,FILTER_SANITIZE_STRING);
       $_SESSION['loged'] = TRUE;
-      echo $_SESSION['user'];
+      
+      
+      //send user to home page
+      echo "<script>
+     location.href = 'home.php';
+    </script>";
     }
     else{
       $message = "*Password not match";
@@ -54,7 +59,7 @@ if(isset($_POST['send'])){
 
         <div class="welcome">Welcome to RainChat ✌️</div>
 
-        <form action="<?php echo htmlspecialchars($_SERVER['SELF']);?>" method="POST">
+        <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method="POST">
 
              <label for="username"><b>Username</b></label>
               <br>
