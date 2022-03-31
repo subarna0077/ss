@@ -1,0 +1,6 @@
+Things that need changes : 
+
+1. Registration page must contain a Photo select option for user to add their dp
+2. The button to login in login page should be made center
+3. A better UI for user to post something (Take referenece from twitter)
+4. Make the comment and like option valid in backend 

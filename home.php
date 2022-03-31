@@ -14,6 +14,7 @@ if (!$_SESSION['loged']) {
     </script>";
 }
 
+$htmlspecial = htmlspecialchars($_SERVER['PHP_SELF']);
 
 ?>
 <!DOCTYPE html>
@@ -116,6 +117,7 @@ if (!$_SESSION['loged']) {
             </p>
           </div>
           <hr class='border-slate-600 opacity-60 my-4 p-1 w-[90%] m-auto' />
+          <form method = 'POST' action ='post.php'>
           <div class='add flex justify-between'>
             <button name='comment'><i class='fa fa-comment-o flex-1 px-2' aria-hidden='true'><span class='p-2 text-sm'>0</span></i
             ></button>
@@ -124,6 +126,7 @@ if (!$_SESSION['loged']) {
             ></button>
           </div>
         </div>
+        </form>
       </div>";
     }
     ?>
