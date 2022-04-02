@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    
+
     <script
       src="https://kit.fontawesome.com/e5e6ca6b44.js"
       crossorigin="anonymous"
@@ -10,15 +10,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>shshsdhdshds</title>
-    <link rel="stylesheet" href="output.css" />
-    <link rel="stylesheet"
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
       integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
   </head>
-  <body class=" m-auto">
+  <body class="m-auto">
     <nav class="">
       <div class="flex p-4 items-center">
         <div class="ham-burger inline-block basis-1/4 cursor-pointer md:hidden">
@@ -30,30 +31,99 @@
           <img src="download.jpeg" alt="" />
           <h2 class="text-2xl text-gray-700 font-[20px]">RainChat</h2>
         </div>
-        <div class="nav-items absolute mt-32 bg-blue-600 -translate-x-[14rem]">
-         
-        </div>
+        <div
+          class="nav-items absolute mt-32 bg-blue-600 -translate-x-[14rem]"
+        ></div>
       </div>
     </nav>
 
     <main class="">
-      <div class="home-nav flex mx-4 p-4 md:mx-0 md:p-8 bg-[#0a182d] text-white md:justify-between md:text-sm  ">
+      <div
+        class="home-nav flex mx-4 p-4 md:mx-0 md:p-8 bg-[#0a182d] text-white md:justify-between md:text-sm"
+      >
         <div class="links basis-2/3 md:basis-0 m">Home</div>
-        <div class="links space-x-2 flex items-center lg:space-x-5 ">
-          <i class="fa-solid fa-magnifying-glass "></i>
+        <div class="links space-x-2 flex items-center lg:space-x-5">
+          <i class="fa-solid fa-magnifying-glass"></i>
           <a href="">Sign up</a>
-          
-          <div class="itemss hidden md:flex space-x-2  lg:space-x-5"> 
-          
-          <div class="item">About</div>
-          <div class="item">Contacts</div>
-          <div class="item">LogOut</div></div></div>
-        
 
+          <div class="itemss hidden md:flex space-x-2 lg:space-x-5">
+            <div class="item">About</div>
+            <div class="item">Contacts</div>
+            <div class="item">LogOut</div>
+          </div>
+        </div>
       </div>
-      <div class="blog-post md:w-[80%] md:m-auto mx-4 md:flex md:my-6 md:items-center md:p-6">
-        <div class="blog-image   ">
-          <img class="md:object-cover" src="570fd0e9b5094cdaa8ba958bd6dded88.jpg" alt="" />
+
+      <section class="post mx-4 my-4 border-1 md:w-[80%] md:mx-auto">
+        <form
+          class="flex items-center p-4 space-x-2 border rounded-xl md:p-8"
+          action=""
+        >
+          <div class="user-img">
+            <img
+              class="rounded-[50%] w-8 h-8 object-cover"
+              src="sss.jpg"
+              alt=""
+            />
+          </div>
+
+          <div class="post-area flex-1 text-sm md:text-base">
+            What's on your mind, Suman?
+          </div>
+          <div
+            class="btn flex flex-col space-y-2 md:flex-row md:space-x-2 items-center justify-center"
+          >
+            <button
+              class="bg-yellow-500 text-white text-[10px] p-1 md:px-[6px] md:text-sm"
+            >
+              <i class="fa-solid fa-file-arrow-up text-black"></i> Choose a file
+            </button>
+            <button
+              class="bg-blue-700 px-3 py-2 md:px-5 md:py-3 text-white hover:bg-blue-600 transition-all border rounded-md"
+            >
+              Post
+            </button>
+          </div>
+        </form>
+
+        <form action="" class="hidden border h-[50vh]">
+          <div class="flex justify-between pt-4">
+            <div></div>
+            <div class="title font-bold">Create Post</div>
+            <i class="fa-regular fa-x mr-4"></i>
+          </div>
+
+          <hr />
+
+          <div class="user-details flex space-x-3 items-center">
+            <img
+              class="rounded-[50%] w-8 h-8 object-cover"
+              src="sss.jpg"
+              alt=""
+            />
+            <div class="username">Suman Sapkota</div>
+          </div>
+
+          <div class="flex flex-col justify-end">
+            <div class="post-area">What's on your mind, Suman?</div>
+
+            <button class="bg-yellow-500">
+              <i class="fa-solid fa-file-arrow-up"></i> Choos e a file
+            </button>
+            <button class="bg-green-500 w-[100%]">Post</button>
+          </div>
+        </form>
+      </section>
+
+      <div
+        class="blog-post md:w-[80%] md:m-auto mx-4 md:flex md:my-6 md:items-center md:p-6"
+      >
+        <div class="blog-image">
+          <img
+            class="md:object-cover"
+            src="570fd0e9b5094cdaa8ba958bd6dded88.jpg"
+            alt=""
+          />
         </div>
         <div class="content p-2 md:flex-[70%]">
           <div class="top flex justify-between items-center">
@@ -122,9 +192,15 @@
           </div>
         </div>
       </div>
-      <div class="blog-post  md:w-[80%] md:m-auto mx-4 md:flex md:my-6 md:items-center md:p-6">
-        <div class="blog-image   ">
-          <img class="md:object-cover" src="570fd0e9b5094cdaa8ba958bd6dded88.jpg" alt="" />
+      <div
+        class="blog-post md:w-[80%] md:m-auto mx-4 md:flex md:my-6 md:items-center md:p-6"
+      >
+        <div class="blog-image">
+          <img
+            class="md:object-cover"
+            src="570fd0e9b5094cdaa8ba958bd6dded88.jpg"
+            alt=""
+          />
         </div>
         <div class="content p-2 md:flex-[70%]">
           <div class="top flex justify-between items-center">
@@ -193,9 +269,15 @@
           </div>
         </div>
       </div>
-      <div class="blog-post  md:w-[80%] md:m-auto mx-4 md:flex md:my-6 md:items-center md:p-6">
-        <div class="blog-image   ">
-          <img class="md:object-cover" src="570fd0e9b5094cdaa8ba958bd6dded88.jpg" alt="" />
+      <div
+        class="blog-post md:w-[80%] md:m-auto mx-4 md:flex md:my-6 md:items-center md:p-6"
+      >
+        <div class="blog-image">
+          <img
+            class="md:object-cover"
+            src="570fd0e9b5094cdaa8ba958bd6dded88.jpg"
+            alt=""
+          />
         </div>
         <div class="content p-2 md:flex-[70%]">
           <div class="top flex justify-between items-center">
@@ -264,18 +346,16 @@
           </div>
         </div>
       </div>
-    
-     
     </main>
     <footer class="bg-[#0a182d] text-white text-center p-2">
-
-        <div class="links flex justify-center space-x-3 p-5 ">
-            <i class="fa fa-facebook text-white" aria-hidden="true"></i>
-            <i class="fa fa-twitter text-white" aria-hidden="true"></i>
-            <i class="fa fa-linkedin text-white" aria-hidden="true"></i>
-
-        </div>
-        <p class="md:p-6">©2022 by Rainchat. Proudly created by Suman and Pranab.</p>
+      <div class="links flex justify-center space-x-3 p-5">
+        <i class="fa fa-facebook text-white" aria-hidden="true"></i>
+        <i class="fa fa-twitter text-white" aria-hidden="true"></i>
+        <i class="fa fa-linkedin text-white" aria-hidden="true"></i>
+      </div>
+      <p class="md:p-6">
+        ©2022 by Rainchat. Proudly created by Suman and Pranab.
+      </p>
     </footer>
   </body>
 </html>
